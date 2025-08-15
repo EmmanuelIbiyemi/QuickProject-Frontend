@@ -91,7 +91,6 @@ export default function Signup() {
                         placeholder="Enter your email"
                         />
                     </div>
-                    {/* {errors.email && <p className="mt-1 text-sm text-red-400">{errors.email}</p>} */}
                     </div>
 
                     {/* Password Field */}
@@ -102,24 +101,13 @@ export default function Signup() {
                     <div className="relative">
                         <Lock className="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-gray-400" />
                         <input
-                        //   id="password"
-                        //   type={showPassword ? 'text' : 'password'}
-                        value={password}
-                        onChange={(e) => setPass(e.target.value)}
-                        className={`w-full pl-10 pr-12 py-3 bg-white/10 border rounded-lg text-black placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent `}
-                        placeholder="Enter your password"
+                            value={password}
+                            onChange={(e) => setPass(e.target.value)}
+                            className={`w-full pl-10 pr-12 py-3 bg-white/10 border rounded-lg text-black placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent `}
+                            placeholder="Enter your password"
                         />
 
-                        {/* This is to show the user password if he wants */}
-                        {/* <button
-                        type="button"
-                        onClick={() => setShowPassword(!showPassword)}
-                        className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-white"
-                        >
-                        {showPassword ? <EyeOff className="h-5 w-5" /> : <Eye className="h-5 w-5" />}
-                        </button> */}
                     </div>
-                    {/* {errors.password && <p className="mt-1 text-sm text-red-400">{errors.password}</p>} */}
                     </div>
 
                     
