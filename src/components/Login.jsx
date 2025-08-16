@@ -4,29 +4,42 @@ import { Link } from 'react-router-dom';
 
 import { ToastContainer, toast } from 'react-toastify';
 export default function Login() {
-    const [email, setMail] = React.useState("");
+    const [name, setName] = React.useState("");
     const [password, setPass] = React.useState(Number);
-//   const [errors, setErrors] = React.useState<{ email: String, password: String }>({});
+
+    const lower_name = name.toLowerCase()
 
 
-    const notify = () => toast("Login SuccessFull");
+// -- GOT THE POP UP NOTIFICATION FOR A GITHUB REPO WILL SHEAR IT ON THE README.md File
+    const successfulnotify = () => toast("Login SuccessFull");
+    const notfoundnotify = () => toast("User Not Found");
 
         async function checkUsers() {
-           const connect = await fetch(`http://127.0.0.1:8000/Login?Username=${email}&Password=${password}`);
+           const connect = await fetch(`http://127.0.0.1:8000/Login?Username=${lower_name}&Password=${password}`);
            const output = await connect.json();
             console.log(output)
+            if (output == "success"){
+
+              // This is for the notification for the successfull 
+               successfulnotify();
+
+            }
+
+            else if ( output == "User Not Found"){
+
+              // This is for the error notification for any type errors
+              notfoundnotify();
+
+            }
+
         }
 
         const handleSubmit =(e)=>{
             e.preventDefault();
-            notify();
             console.log("user details submited")
         }
 
-    // React.useEffect(()=>{
-    //     console.log("It is working")
-    //     checkUsers();
-    // })
+
 
   return (
     <>
@@ -49,17 +62,17 @@ export default function Login() {
             {/* Email Field */}
             <div>
               <label htmlFor="email" className="block text-sm font-medium text-gray-300 mb-2">
-                Email Address
+                User Name
               </label>
               <div className="relative">
                 <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-gray-400" />
                 <input
-                  id="email"
-                  type="email"
-                  value={email}
-                  onChange={(e) => setMail(e.target.value)}
+                  id="text"
+                  type="text"
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
                   className={`w-full pl-10 pr-4 py-3 bg-white/10 border rounded-lg text-black placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent`}
-                  placeholder="Enter your email"
+                  placeholder="Enter your UserName"
                 />
               </div>
             </div>
