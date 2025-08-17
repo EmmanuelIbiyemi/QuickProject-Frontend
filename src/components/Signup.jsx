@@ -16,7 +16,7 @@ export default function Signup() {
     }
 
         async function pushNewUsers() {
-            const connect = await fetch('http://127.0.0.1:8000/Signup',{
+            const connect = await fetch('https://quickproject-backend.onrender.com/Signup',{
                 method: "POST",
                 headers: {
                     "Content-Type":"application/json"

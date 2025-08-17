@@ -15,7 +15,7 @@ export default function Login() {
     const notfoundnotify = () => toast("User Not Found");
 
         async function checkUsers() {
-           const connect = await fetch(`http://127.0.0.1:8000/Login?Username=${lower_name}&Password=${password}`);
+           const connect = await fetch(`https://quickproject-backend.onrender.com/Login?Username=${lower_name}&Password=${password}`);
            const output = await connect.json();
             console.log(output)
             if (output == "success"){
@@ -37,6 +37,9 @@ export default function Login() {
         const handleSubmit =(e)=>{
             e.preventDefault();
             console.log("user details submited")
+            console.log(`name: ${lower_name}`)
+            console.log(`name: ${password}`)
+
         }
 
 
